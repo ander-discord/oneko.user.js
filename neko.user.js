@@ -21,13 +21,6 @@ let dragoffsetX = 0;
 let dragoffsetY = 0;
 let touched = false;
 
-let lastelement = null;
-let lastelemX = 0;
-let lastelemY = 0;
-let lastrect = null;
-let lastscrollX = window.scrollX;
-let lastscrollY = window.scrollY;
-
 let mousemoved = false;
 let mouseX = 0, mouseY = 0;
 let nekoX = 32, nekoY = 32;
@@ -95,17 +88,6 @@ function setSprite(name, frame) {
     neko.style.backgroundPosition = `${sprite[0] * 32}px ${sprite[1] * 32}px`;
 }
 
-function getelement() {
-    const x = nekoX;
-    const y = nekoY + 16;
-
-    const el = document.elementFromPoint(x, y);
-    if (el === document.body || el === document.documentElement) return null;
-    if (!el || el === neko) return null;
-
-    return el;
-}
-
 function tick() {
     frame += 1;
     frametime += 1;
@@ -114,37 +96,8 @@ function tick() {
     let diffY = mouseY - nekoY;
     let distance = Math.hypot(diffX, diffY) || 1;
 
-    const element = getelement();
-
     const scrollX = window.scrollX;
     const scrollY = window.scrollY;
-
-    if (element) {
-        const r = element.getBoundingClientRect();
-
-        if (!lastrect || element !== lastelement) {
-            lastelement = element;
-            lastrect = r;
-            lastscrollX = scrollX;
-            lastscrollY = scrollY;
-        } else {
-            const dx = (r.left - lastrect.left) - (scrollX - lastscrollX);
-            const dy = (r.top - lastrect.top) - (scrollY - lastscrollY);
-
-            nekoX += dx;
-            nekoY += dy;
-
-            neko.style.left = `${nekoX - 16}px`;
-            neko.style.top = `${nekoY - 16}px`;
-
-            lastrect = r;
-            lastscrollX = scrollX;
-            lastscrollY = scrollY;
-        }
-    } else {
-        lastelement = null;
-        lastrect = null;
-    }
 
     if (distance < stopdistance) {
         if (!idle) {
