@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         neko!!!
 // @version      v1
-// @description  a good cat! - dont install this, this is latest if this got outupdated and you gonna be always outupdated
+// @description  a good cat!
 // @author       fiveappls
 // @match        https://*/*
 // ==/UserScript==
