@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         neko!!!
-// @version      v1
+// @version      v1.1.0
 // @description  a good cat!
-// @author       fiveappls
+// @author       fiveappls/ander-discord
 // @match        https://*/*
 // ==/UserScript==
 
