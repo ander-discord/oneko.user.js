@@ -20,7 +20,7 @@ let mouseX = 0, mouseY = 0;
 let nekoX = 32, nekoY = 32;
 
 let sleep = 0;
-let lastsleep = 0;
+let lastsleep = -256;
 let scratchself = 0;
 let stopdistance = Math.random() * 48 + 16;
 
@@ -162,6 +162,11 @@ function tick() {
             }
 
             idleanimation = avaibleanimations[Math.floor(Math.random() * avaibleanimations.length)];
+
+            if (!idleanimation) {
+                idleTime = 0;
+                return 0;
+            }
 
             if (idleanimation.startsWith("scratch")) {
                 sleep += 1.5;
