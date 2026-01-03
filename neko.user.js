@@ -138,7 +138,7 @@ function tick() {
         if (idleTime > 16 && !idleanimation) {
             let avaibleanimations = [];
 
-            if (frametime - lastsleep < 256 && frametime - lastsleep > 256) {
+            if (frametime - lastsleep > 256) {
                 avaibleanimations.push("scratchSelf");
                 if (nekoX < 32) {
                     avaibleanimations.push("scratchWallW");
@@ -217,5 +217,4 @@ function tick() {
     neko.style.left = `${nekoX - 16}px`;
     neko.style.top = `${nekoY - 16}px`;
 }
-
 init();
