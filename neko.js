@@ -84,7 +84,7 @@ const spritesets = {
 };
 
 function init() {
-    const neko_url = "http://localhost:3000/neko.gif";
+    const neko_url = "https://raw.githubusercontent.com/ander-discord/oneko.user.js/refs/heads/main/neko.gif";
 
     neko.id = "neko";
     neko.style.width = "32px";
