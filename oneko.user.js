@@ -9,5 +9,5 @@
 (function(){
     'use strict';
     console.log("neko");
-    var s=document.createElement('script');s.src='http://localhost:3000/neko.js';document.head.appendChild(s);
+    var s=document.createElement('script');s.src='https://github.com/ander-discord/oneko.user.js/raw/refs/heads/main/neko.js';document.head.appendChild(s);
 })();
