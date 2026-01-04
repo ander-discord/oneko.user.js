@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         neko!!!
-// @version      v1.1.3
+// @version      v1.1.3.5
 // @description  a good cat!
 // @author       fiveappls/ander-discord
 // @match        https://*/*
@@ -100,7 +100,7 @@ function tick() {
     let diffY = mouseY - nekoY;
     let distance = Math.hypot(diffX, diffY) || 1;
 
-    if (distance < stopdistance) {
+    if (distance < stopdistance || idleanimation) {
         if (!idle) {
             stopdistance = Math.random() * 32 + 32;
             setSprite("idle", 0);
@@ -166,9 +166,6 @@ function tick() {
 
             frame = 0;
             idletime = 0;
-        }
-        if (idleanimation) {
-            return;
         }
 
         if (idleanimation) {
